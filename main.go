@@ -46,7 +46,7 @@ func main() {
 	server := http.Server{
 		Addr: "127.0.0.1:8080",
 	}
-	//http句柄，根目录和响应函数
+	//  http句柄，根目录和响应函数
 	http.HandleFunc("/", index)
 	http.HandleFunc("/index.html", indexHtml)
 	if err := server.ListenAndServe(); err != nil {
