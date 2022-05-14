@@ -6,12 +6,25 @@ import (
 	"log"
 	"net/http"
 	"text/template"
+	"time"
 )
 
 //定义一个结构体
 type indexData struct {
 	Title string `json:"title"`
 	Desc  string `json:"desc"`
+}
+
+func IsODD(num int) bool {
+	return num%2 == 0
+}
+
+func GetNextName(strs []string, index int) string {
+	return strs[index+1]
+}
+
+func Date(layout string) string {
+	return time.Now().Format(layout)
 }
 
 //解析html
@@ -26,8 +39,12 @@ func indexHtml(w http.ResponseWriter, r *http.Request) {
 	footer := path + "/template/layout/footer.html"
 	personal := path + "/template/layout/personal.html"
 	pagination := path + "/template/layout/pagination.html"
-	post := path + "/template/layout/post.html"
-	t, _ = template.ParseFiles(index, home, head, footer, personal, pagination, post)
+	post := path + "/template/layout/post-list.html"
+	t.Funcs(template.FuncMap{"isODD": IsODD, "getNextName": GetNextName, "date": Date})
+	t, err := t.ParseFiles(index, home, head, footer, personal, pagination, post)
+	if err != nil {
+		log.Println("解析模板出错：", err)
+	}
 	//页面上涉及到的所以数据，必须有定义
 	var categorys = []models.Category{
 		{

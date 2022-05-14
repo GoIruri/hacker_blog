@@ -10,9 +10,9 @@
     UserDesc = "一个不知名黑客"
 [system]
     CdnURL = "https://static.mszlu.com/goblog/es6/md-assets"
-    QiniuAccessKey = "替换自己的"
-    QiniuSecretKey = "替换自己的"
+    QiniuAccessKey = "1"
+    QiniuSecretKey = "1"
     Valine = true
-    ValineAppid = "替换自己的"
-    ValineAppkey = "替换自己的"
-    ValineServerURL = "替换自己的"
+    ValineAppid = "1"
+    ValineAppkey = "1"
+    ValineServerURL = "1"
