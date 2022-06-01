@@ -10,7 +10,7 @@ import (
 type Post struct {
 	Pid        int       `json:"pid"`        // 文章ID
 	Title      string    `json:"title"`      // 文章ID
-	Slug       string    `json:"slug"`       // 自定也页面 path
+	Slug       string    `json:"slug"`       // 自定也页面 templateDir
 	Content    string    `json:"content"`    // 文章的html
 	Markdown   string    `json:"markdown"`   // 文章的Markdown
 	CategoryId int       `json:"categoryId"` //分类id
@@ -24,7 +24,7 @@ type Post struct {
 type PostMore struct {
 	Pid          int           `json:"pid"`          // 文章ID
 	Title        string        `json:"title"`        // 文章ID
-	Slug         string        `json:"slug"`         // 自定也页面 path
+	Slug         string        `json:"slug"`         // 自定也页面 templateDir
 	Content      template.HTML `json:"content"`      // 文章的html
 	CategoryId   int           `json:"categoryId"`   // 文章的Markdown
 	CategoryName string        `json:"categoryName"` // 分类名
